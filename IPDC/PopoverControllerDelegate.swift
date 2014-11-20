@@ -27,4 +27,12 @@ class PopoverControllerDelegate: NSObject, UIPopoverPresentationControllerDelega
 		view.memory = sourceView
 	}
 
+	
+	func presentationController(controller: UIPresentationController, viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+		return UINavigationController(rootViewController:controller.presentedViewController)
+	}
+	func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+		return .FullScreen
+	}
+
 }
