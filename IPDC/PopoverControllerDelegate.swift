@@ -18,4 +18,13 @@ class PopoverControllerDelegate: NSObject, UIPopoverPresentationControllerDelega
 		sourceTextRange = textRange
 	}
 	
+	func popoverPresentationController(popoverPresentationController: UIPopoverPresentationController, willRepositionPopoverToRect rect: UnsafeMutablePointer<CGRect>, inView view: AutoreleasingUnsafeMutablePointer<UIView?>) {
+		let textRange = sourceTextRange
+		let sourceView = sourceTextView
+		let textRect = sourceView.frameOfTextRange(textRange)
+		
+		rect.memory = textRect
+		view.memory = sourceView
+	}
+
 }

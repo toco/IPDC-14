@@ -73,6 +73,9 @@ class TalkDetailViewController: UIViewController, UITextViewDelegate {
 		popover.sourceRect = sourceView.frameOfTextRange(textRange)
 		popover.sourceView = sourceView
 		
+		popoverDelegate = PopoverControllerDelegate(textView: detailDescriptionTextView, textRange: textRange)
+		popover.delegate = popoverDelegate
+		
 		presentViewController(speakerViewController, animated: true, completion: nil)
 	}
 	
