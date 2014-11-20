@@ -67,6 +67,11 @@ class TalkDetailViewController: UIViewController, UITextViewDelegate {
 		let speakerViewController = storyboard?.instantiateViewControllerWithIdentifier("speakerDetail") as SpeakerDetailViewController
 		speakerViewController.speaker = speaker
 		
+		speakerViewController.modalPresentationStyle = .Popover
+		let popover = speakerViewController.popoverPresentationController!
+		let sourceView = detailDescriptionTextView
+		popover.sourceRect = sourceView.frameOfTextRange(textRange)
+		popover.sourceView = sourceView
 		
 		presentViewController(speakerViewController, animated: true, completion: nil)
 	}
